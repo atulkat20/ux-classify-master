@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  
+    div(class="col-sm-6 col-sm-offset-3")
+
+        h1
+            span(class="fa fa-key")
+            |  Change Password
+        
+        if messages.error
+            .alert.alert-danger
+                div= messages.error
+        if messages.info
+            .alert.alert-info
+                div= messages.info
+        if messages.success
+            .alert.alert-success
+                div= messages.success
+
+        form(method='POST')
+            //- legend Change Password
+            .form-group
+                label(for='password') New Password
+                input.form-control(type='password', name='password', value='', placeholder='New password', autofocus=true)
+            .form-group
+                label(for='confirm') Confirm Password
+                input.form-control(type='password', name='confirm', value='', placeholder='Confirm password')
+            .form-group
+                button.btn.btn-primary(type='submit') Update Password
